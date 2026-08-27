@@ -105,8 +105,8 @@ function Index() {
       {/* Main */}
       <div className="mr-20 flex min-h-screen flex-1 flex-col md:mr-72">
         {/* Header */}
-        <header className="sticky top-0 z-10 border-b border-navy-soft/20 bg-navy/95 backdrop-blur">
-          <div className="flex items-center gap-3 px-5 py-4 md:px-8">
+        <header className="sticky top-0 z-10 px-5 py-4 md:px-8">
+          <div className="flex items-center gap-3 rounded-[28px] border border-white/10 bg-navy-deep/90 px-5 py-3.5 shadow-2xl backdrop-blur">
             <h1 className="font-display text-xl font-bold text-primary-foreground md:text-2xl">
               לוח בקרה
             </h1>
@@ -116,10 +116,10 @@ function Index() {
                 <input
                   type="search"
                   placeholder="חיפוש חסימה..."
-                  className="w-36 rounded-full border border-navy-soft/50 bg-navy-soft/40 py-2 pr-9 pl-4 text-sm text-primary-foreground placeholder:text-primary-foreground/40 focus:border-gold focus:outline-none md:w-56"
+                  className="w-36 rounded-full border border-white/10 bg-white/5 py-2 pr-9 pl-4 text-sm text-primary-foreground placeholder:text-primary-foreground/40 transition-colors focus:border-gold/50 focus:bg-white/10 focus:outline-none md:w-56"
                 />
               </div>
-              <button className="flex items-center gap-1.5 rounded-full border border-navy-soft/60 px-3.5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold">
+              <button className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-primary-foreground transition-all hover:border-gold/40 hover:bg-white/10 hover:text-gold">
                 <RotateCw className="h-4 w-4" />
                 <span className="hidden sm:inline">רענן</span>
               </button>
