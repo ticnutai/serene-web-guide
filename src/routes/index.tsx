@@ -268,19 +268,36 @@ function StatCard({
   accent: boolean;
 }) {
   return (
-    <div className="card-surface group p-5 transition-transform hover:-translate-y-0.5">
-      <div className="flex items-center justify-between">
+    <div
+      className={`group relative overflow-hidden rounded-[28px] border p-5 transition-all duration-300 hover:-translate-y-0.5 ${
+        accent
+          ? "border-gold/30 bg-gradient-to-br from-gold-soft/80 to-gold-soft/30"
+          : "border-white/10 bg-white/5"
+      }`}
+    >
+      <div
+        className={`pointer-events-none absolute -left-10 -top-10 h-32 w-32 rounded-full opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-35 ${
+          accent ? "bg-gold" : "bg-navy-soft"
+        }`}
+      />
+      <div className="relative flex items-center justify-between">
         <p className="text-sm font-medium text-muted-foreground">{title}</p>
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 ${
-            accent ? "bg-gold-soft text-gold group-hover:scale-110" : "bg-secondary text-primary group-hover:bg-white group-hover:text-navy"
+          className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 ${
+            accent
+              ? "border-gold/40 bg-gold/15 text-gold group-hover:scale-110 group-hover:bg-gold/25"
+              : "border-white/10 bg-white/10 text-primary-foreground group-hover:scale-110 group-hover:border-gold/40 group-hover:text-gold"
           }`}
         >
           <Icon className="h-5 w-5" strokeWidth={1.8} />
         </div>
       </div>
-      <p className="mt-3 font-display text-2xl font-extrabold text-foreground">{value}</p>
-      <div className={`mt-3 h-1 w-10 rounded-full transition-all group-hover:w-16 ${accent ? "bg-gold" : "bg-navy"}`} />
+      <p className="relative mt-3 font-display text-2xl font-extrabold text-foreground">{value}</p>
+      <div
+        className={`relative mt-3 h-1.5 w-10 rounded-full transition-all duration-300 group-hover:w-16 ${
+          accent ? "bg-gold" : "bg-navy"
+        }`}
+      />
     </div>
   );
 }
