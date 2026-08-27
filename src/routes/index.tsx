@@ -272,11 +272,11 @@ function StatCard({
       <div className="flex items-center justify-between">
         <p className="text-sm font-medium text-muted-foreground">{title}</p>
         <div
-          className={`flex h-9 w-9 items-center justify-center rounded-lg ${
-            accent ? "bg-gold-soft text-gold" : "bg-secondary text-primary"
+          className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 ${
+            accent ? "bg-gold-soft text-gold group-hover:scale-110" : "bg-secondary text-primary group-hover:bg-white group-hover:text-navy"
           }`}
         >
-          <Icon className="h-4.5 w-4.5" />
+          <Icon className="h-5 w-5" strokeWidth={1.8} />
         </div>
       </div>
       <p className="mt-3 font-display text-2xl font-extrabold text-foreground">{value}</p>
