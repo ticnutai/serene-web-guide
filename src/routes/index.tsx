@@ -103,7 +103,7 @@ function Index() {
       </aside>
 
       {/* Main */}
-      <div className="mr-20 flex min-h-screen flex-1 flex-col md:mr-64">
+      <div className="mr-20 flex min-h-screen flex-1 flex-col md:mr-72">
         {/* Header */}
         <header className="sticky top-0 z-10 border-b border-navy-soft/20 bg-navy/95 backdrop-blur">
           <div className="flex items-center gap-3 px-5 py-4 md:px-8">
