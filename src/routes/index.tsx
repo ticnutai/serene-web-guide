@@ -49,10 +49,10 @@ function Index() {
   return (
     <div dir="rtl" className="flex min-h-screen bg-background">
       {/* Sidebar */}
-      <aside className="fixed inset-y-0 right-0 z-20 flex w-20 flex-col items-center gap-2 bg-navy-deep py-6 md:w-64 md:items-stretch md:px-4">
-        <div className="mb-8 flex items-center gap-3 px-2">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold shadow-gold">
-            <Shield className="h-6 w-6 text-navy-deep" strokeWidth={2.4} />
+      <aside className="fixed inset-y-0 right-0 z-20 flex w-20 flex-col items-center gap-2 rounded-l-[40px] border-l border-white/5 bg-navy-deep py-6 shadow-2xl md:w-72 md:items-stretch md:px-6">
+        <div className="mb-10 flex items-center justify-center gap-3 px-2 md:justify-start">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-gold via-[#F9E498] to-[#B8860B] shadow-gold">
+            <Shield className="h-7 w-7 text-navy-deep" strokeWidth={2.4} />
           </div>
           <div className="hidden md:block">
             <p className="font-display text-lg font-bold leading-tight text-primary-foreground">
@@ -62,23 +62,31 @@ function Index() {
           </div>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1.5">
+        <nav className="flex flex-1 flex-col gap-3">
           {navItems.map((item) => (
             <button
               key={item.label}
-              className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all ${
+              className={`group flex items-center gap-3 rounded-full px-3 py-3 text-sm font-medium transition-all duration-300 md:px-5 md:py-4 ${
                 item.active
-                  ? "border-r-4 border-gold bg-navy-soft text-gold"
-                  : "text-primary-foreground/60 hover:bg-navy-soft/60 hover:text-primary-foreground"
+                  ? "border border-white/10 bg-white/5 text-primary-foreground shadow-inner"
+                  : "text-primary-foreground/60 hover:bg-white/5 hover:text-primary-foreground"
               }`}
             >
-              <item.icon className="h-5 w-5 shrink-0" />
+              <div
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                  item.active
+                    ? "bg-white/10 text-gold"
+                    : "bg-transparent group-hover:bg-white/10 group-hover:text-gold"
+                }`}
+              >
+                <item.icon className="h-5 w-5 shrink-0" strokeWidth={1.8} />
+              </div>
               <span className="hidden md:inline">{item.label}</span>
             </button>
           ))}
         </nav>
 
-        <div className="rounded-xl bg-navy-soft/60 p-3 text-center md:text-right">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-4 text-center md:text-right">
           <div className="flex items-center justify-center gap-2 md:justify-start">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60" />
@@ -95,7 +103,7 @@ function Index() {
       </aside>
 
       {/* Main */}
-      <div className="mr-20 flex min-h-screen flex-1 flex-col md:mr-64">
+      <div className="mr-20 flex min-h-screen flex-1 flex-col md:mr-72">
         {/* Header */}
         <header className="sticky top-0 z-10 border-b border-navy-soft/20 bg-navy/95 backdrop-blur">
           <div className="flex items-center gap-3 px-5 py-4 md:px-8">
@@ -264,11 +272,11 @@ function StatCard({
       <div className="flex items-center justify-between">
         <p className="text-sm font-medium text-muted-foreground">{title}</p>
         <div
-          className={`flex h-9 w-9 items-center justify-center rounded-lg ${
-            accent ? "bg-gold-soft text-gold" : "bg-secondary text-primary"
+          className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 ${
+            accent ? "bg-gold-soft text-gold group-hover:scale-110" : "bg-secondary text-primary group-hover:bg-white group-hover:text-navy"
           }`}
         >
-          <Icon className="h-4.5 w-4.5" />
+          <Icon className="h-5 w-5" strokeWidth={1.8} />
         </div>
       </div>
       <p className="mt-3 font-display text-2xl font-extrabold text-foreground">{value}</p>
